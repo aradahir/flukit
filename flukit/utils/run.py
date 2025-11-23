@@ -23,7 +23,6 @@ def call_variants(sequences: dict, lineage: str) -> tuple[DataFrame, list]:
     ha_records = []
     for record in track(sequences, description="Processing..."):
         gene = sequences[record].gene
-        print(gene)
         try:
             seqAA, refAA = align(lineage = lineage, input_record = sequences[record])
 
@@ -183,8 +182,6 @@ def tree(input_sequences, lineages):
     
     combined_df.to_csv(f"{input_filenames}_representative.csv", index=False)
     combine_pdfs('.', f'{input_filenames}_tree.pdf')
-    #merge_df = annotate_virus(combined_df)
-    #merge_df.to_csv(f"{input_filenames}_representative2.csv", index=False)
     remove_files('.', r'.*_representative_virus.csv$')
     remove_files('.', r'.*_(HA|NA|PB1|PB2|NP|MP|NS|PA)\.pdf$')
     remove_files('.', 'concat.fasta')
