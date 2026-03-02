@@ -21,7 +21,7 @@ app = typer.Typer(
 def main():
     pass
 
-@app.command(no_args_is_help=True, help = "Call variants, mutations and clades on sequences (all genes)")
+#app.command(no_args_is_help=True, help = "Call variants, mutations and clades on sequences (all genes)")
 def variants(
     sequences: Path = typer.Option(
         ...,
